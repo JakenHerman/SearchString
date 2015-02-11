@@ -1,4 +1,9 @@
+/*
 
+to add:
+io txt to ArrayList
+
+*/
 package searchstring;
 
 import java.io.*;
