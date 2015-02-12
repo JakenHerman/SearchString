@@ -44,9 +44,9 @@ Running Example
 
 Type a word to search (-1 to stop): computer
 
-sequentialSearch() : computer is found in [2424] (comparison=2425). iterative binarySearch(): computer is found in [2424] (comparison=11). recursive binarySearch(): computer is found in [2424] (comparison=11). Type a word to search (-1 to stop): science
+sequentialSearch() : computer is found in [ 2424 ] (comparison=2425). iterative binarySearch(): computer is found in [2424] (comparison=11). recursive binarySearch(): computer is found in [ 2424 ] (comparison=11). Type a word to search (-1 to stop): science
 
-sequentialSearch() : science is found in [10027] (comparison=10028). iterative binarySearch(): science is found in [10027] (comparison=13). recursive binarySearch(): science is found in [10027] (comparison=13). Type a word to search (-1 to stop): java
+sequentialSearch() : science is found in [ 10027 ] (comparison=10028). iterative binarySearch(): science is found in [10027] (comparison=13). recursive binarySearch(): science is found in [ 10027 ] (comparison=13). Type a word to search (-1 to stop): java
 
 sequentialSearch() : java is not found (comparison=13040).
 
