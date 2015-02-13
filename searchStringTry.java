@@ -6,6 +6,37 @@ import java.util.ArrayList;
 
 public class searchStringTry{
 
+
+    public static final String TO_STOP = "-1";
+    public static final int NOT_FOUND = -1;
+
+
+    public int sequentialSearch(String[] array, String value){
+        for (int j = 0; j <= array.size()-1; j++){
+            if (al.get(j).equals(value)){
+                return j;
+            }
+        }
+
+        return NOT_FOUND; 
+    }
+
+    public int binarySearch(String[] array, String value){
+        int low = 0;
+        int high = array.size() - 1;
+        while (low <= high) {
+            int mid = (low + high)/2;
+            count2++;
+            if (array[mid] > value){
+                high = mid - 1;
+            } else if (array[mid] < value){
+                low = mid + 1;
+            } else
+                return mid;
+        }
+        return NOT_FOUND;
+    }
+
     public static void main(String[] args) throws IOException
     {
 
