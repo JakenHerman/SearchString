@@ -55,21 +55,20 @@ public class searchStringTry{
             if (word2Search.equals(TO_STOP)){
                 wantToContinue = false;
             } else {
-                int int2Search = Integer.parseInt(word2Search);
                 count1 = count2 = count3 = 0;
                 int index;
 
-                index = si.sequentialSearch(array, int2Search);
+                index = si.sequentialSearch(array, word2Search);
                 if (index == NOT_FOUND)
-                    System.out.println("sequentialSearch()      : " + int2Search + " is not found (comparison=" + count1 + ").");
+                    System.out.println("sequentialSearch()      : " + word2Search + " is not found (comparison=" + count1 + ").");
                 else
-                    System.out.println("sequentialSearch()      : " + int2Search + " is found in [" + index + "] (comparison=" + count1 + ").");
+                    System.out.println("sequentialSearch()      : " + word2Search + " is found in [" + index + "] (comparison=" + count1 + ").");
 
-                index = si.binarySearch(array, int2Search);
+                index = si.binarySearch(array, word2Search);
                 if (index == NOT_FOUND)
-                    System.out.println("iterative binarySearch(): " + int2Search + " is not found (comparison=" + count2 + ").");
+                    System.out.println("iterative binarySearch(): " + word2Search + " is not found (comparison=" + count2 + ").");
                 else
-                    System.out.println("iterative binarySearch(): " + int2Search + " is found in [" + index + "] (comparison=" + count2 + ").");
+                    System.out.println("iterative binarySearch(): " + word2Search + " is found in [" + index + "] (comparison=" + count2 + ").");
             }}
         while (wantToContinue);
 
