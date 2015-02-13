@@ -10,6 +10,10 @@ public class searchStringTry{
     public static final String TO_STOP = "-1";
     public static final int NOT_FOUND = -1;
 
+    public static int count1;
+    public static int count2;
+    public static int count3;
+
 
     public int sequentialSearch(String[] array, String value){
         for (int j = 0; j <= array.size()-1; j++){
@@ -40,10 +44,36 @@ public class searchStringTry{
     public static void main(String[] args) throws IOException
     {
 
-        /*
-        *
-        * This entire method just puts the txt file into an arraylist and prints it out.
-         */
+        searchStringTry si = new searchStringTry();
+        Scanner user_input = new Scanner(System.in());
+
+        boolean wantToContinue = true;
+
+        do {
+            System.out.print("Type a positive int to search ("+ TO_STOP + " to stop): ");
+            String word2Search = user_input.nextLine();
+            if (word2Search.equals(TO_STOP)){
+                wantToContinue = false;
+            } else {
+                int int2Search = Integer.parseInt(word2Search);
+                count1 = count2 = count3 = 0;
+                int index;
+
+                index = si.sequentialSearch(array, int2Search);
+                if (index == NOT_FOUND)
+                    System.out.println("sequentialSearch()      : " + int2Search + " is not found (comparison=" + count1 + ").");
+                else
+                    System.out.println("sequentialSearch()      : " + int2Search + " is found in [" + index + "] (comparison=" + count1 + ").");
+
+                index = si.binarySearch(array, int2Search);
+                if (index == NOT_FOUND)
+                    System.out.println("iterative binarySearch(): " + int2Search + " is not found (comparison=" + count2 + ").");
+                else
+                    System.out.println("iterative binarySearch(): " + int2Search + " is found in [" + index + "] (comparison=" + count2 + ").");
+            }}
+        while (wantToContinue);
+
+
         File strings = new File("sortedStrings.txt");
         Scanner freader = new Scanner(strings);
 
