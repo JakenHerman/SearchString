@@ -15,17 +15,18 @@ public class searchStringTry{
 
 
     public int sequentialSearch(ArrayList<String> array, String value){
-        for (int j = 0; j <= array.size()-1; j++){
-            if (array.get(j).equals(value)){
-                return j;
-            } else {
+        for (int j = 0; j <= array.size(); j++)
+            if (array.get(j).equalsIgnoreCase(value))
+            {
                 return j;
             }
-        }
-
-        return NOT_FOUND; 
+            
+        return NOT_FOUND;
     }
-/*
+
+    //iterative binary search
+    
+    /*
     public int binarySearch(ArrayList<String> array, String value){
         int low = 0;
         int high = array.size() - 1;
@@ -41,7 +42,13 @@ public class searchStringTry{
         }
         return NOT_FOUND;
     }
-    */
+   */
+    
+    //recursive binary search
+    public int binarySearch(ArrayList<String> array, int low, int high, String value){
+    return 0;
+    }
+    
 
     public static void main(String[] args) throws IOException
     {
@@ -56,7 +63,7 @@ public class searchStringTry{
         File strings = new File("sortedStrings.txt");
         Scanner freader = new Scanner(strings);
 
-        ArrayList<String> al = new ArrayList<String>();
+        ArrayList<String> al = new ArrayList<>();
 
         while(freader.hasNext())
         {
@@ -67,20 +74,30 @@ public class searchStringTry{
             System.out.println(al.get(j));
         }
      */
+        
+         
+            System.out.println(al.size() + " words populated in the instance of ArrayList");
+            
         do {
+            
             System.out.print("Type a string to search ("+ TO_STOP + " to stop): ");
             String word2Search = user_input.nextLine();
             if (word2Search.equals(TO_STOP)){
                 wantToContinue = false;
             } else {
                 count1 = count2 = count3 = 0;
-                int index;
+                int j;
 
-                index = si.sequentialSearch(al, word2Search);
-                if (index == NOT_FOUND)
+                j = si.sequentialSearch(al, word2Search);
+                if (j == NOT_FOUND)
+                {
+                    count1 = al.size();
                     System.out.println("sequentialSearch()      : " + word2Search + " is not found (comparison=" + count1 + ").");
-                else
-                    System.out.println("sequentialSearch()      : " + word2Search + " is found in [" + index + "] (comparison=" + count1 + ").");
+                }
+                else{
+                    count1 = j+1;
+                    System.out.println("sequentialSearch()      : " + word2Search + " is found in [" + j + "] (comparison=" + count1 + ").");
+                }
 /*
                 index = si.binarySearch(al, word2Search);
                 if (index == NOT_FOUND)
