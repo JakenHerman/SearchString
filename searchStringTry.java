@@ -20,33 +20,54 @@ public class searchStringTry{
             {
                 return j;
             }
-            
         return NOT_FOUND;
     }
 
     //iterative binary search
     
-    /*
+    
     public int binarySearch(ArrayList<String> array, String value){
         int low = 0;
         int high = array.size() - 1;
         while (low <= high) {
             int mid = (low + high)/2;
             count2++;
-            if (array.get(mid) > value){
-                high = mid - 1;
-            } else if (array.get(mid) < value){
+        for (int j = 0; j <= array.size(); j++)
+            if (array.get(j).equalsIgnoreCase(value)){
+                if (mid > j){
+                    high = mid - 1;
+                }
+            }
+             else if (mid < j){
                 low = mid + 1;
             } else
                 return mid;
         }
+        
         return NOT_FOUND;
     }
-   */
+   
     
     //recursive binary search
     public int binarySearch(ArrayList<String> array, int low, int high, String value){
-    return 0;
+        
+        if (low > high)
+            return NOT_FOUND;
+        int mid = (low + high)/2;
+        count3++;
+        
+        for (int j = 0; j <= array.size(); j++)
+            if (array[mid] > value)
+            {
+                return binarySearch(array, low, mid-1, value);
+            } 
+            else if (array[mid] < value)
+            {
+                return binarySearch(array, mid+1, high, value);
+            } 
+            else
+                return mid;
+  
     }
     
 
@@ -69,13 +90,7 @@ public class searchStringTry{
         {
             al.add(freader.next());
         }
-/*
-        for (int j = 0; j <= al.size()-1; j++){
-            System.out.println(al.get(j));
-        }
-     */
-        
-         
+
             System.out.println(al.size() + " words populated in the instance of ArrayList");
             
         do {
@@ -93,25 +108,24 @@ public class searchStringTry{
                 {
                     count1 = al.size();
                     System.out.println("sequentialSearch()      : " + word2Search + " is not found (comparison=" + count1 + ").");
-                }
+                } 
                 else{
                     count1 = j+1;
                     System.out.println("sequentialSearch()      : " + word2Search + " is found in [" + j + "] (comparison=" + count1 + ").");
                 }
-/*
-                index = si.binarySearch(al, word2Search);
-                if (index == NOT_FOUND)
+
+                j = si.binarySearch(al, word2Search);
+                if (j == NOT_FOUND)
                     System.out.println("iterative binarySearch(): " + word2Search + " is not found (comparison=" + count2 + ").");
                 else
-                    System.out.println("iterative binarySearch(): " + word2Search + " is found in [" + index + "] (comparison=" + count2 + ").");
-            }} */
+                    System.out.println("iterative binarySearch(): " + word2Search + " is found in [" + j + "] (comparison=" + count2 + ").");
+                }
+        } 
        
-
-            }
-        }
         while (wantToContinue);
+        
     }
 }
-
+     
 
 
