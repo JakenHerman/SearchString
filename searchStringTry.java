@@ -16,38 +16,43 @@ public class searchStringTry{
 
     public int sequentialSearch(ArrayList<String> array, String value){
         for (int j = 0; j <= array.size(); j++)
+         
             if (array.get(j).equalsIgnoreCase(value))
             {
                 return j;
             }
-        return NOT_FOUND;
+        
+            else if (j == (array.size()-1) && !array.get(j).equalsIgnoreCase(value)){
+                return NOT_FOUND;
+            }
+        return 0;
     }
 
     //iterative binary search
     
     
-    public int binarySearch(ArrayList<String> array, String value){
-        int low = 0;
-        int high = array.size() - 1;
-        while (low <= high) {
+      public int binarySearch(ArrayList<String> array, String value)
+      {
+	int low = 0;
+	int high = array.size() - 1;
+	while (low <= high) {
             int mid = (low + high)/2;
             count2++;
-        for (int j = 0; j <= array.size(); j++)
-            if (array.get(j).equalsIgnoreCase(value)){
-                if (mid > j){
-                    high = mid - 1;
-                }
-            }
-             else if (mid < j){
+            if (array.get(mid).compareTo(value) == -1)
+            {
+		high = mid - 1;
+            } 
+            else if (array.get(mid).compareTo(value) == 1)
+            {
                 low = mid + 1;
-            } else
+            } 
+            else
                 return mid;
-        }
-        
-        return NOT_FOUND;
-    }
+	}
+	return NOT_FOUND;
+      } // end of iterative binarySearch()
    
-    
+    /*
     //recursive binary search
     public int binarySearch(ArrayList<String> array, int low, int high, String value){
         
@@ -69,7 +74,7 @@ public class searchStringTry{
                 return mid;
   
     }
-    
+    */
 
     public static void main(String[] args) throws IOException
     {
